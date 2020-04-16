@@ -119,7 +119,6 @@
                          return d.children || d._children ? 13 : 13;
                      })
                      .attr("dy", "-4")
-                     // .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
                      .attr("text-anchor", "middle")
                      .text(function(d) {
                          return d.name;
@@ -235,7 +234,6 @@
          function getJsonLength(jsonData) {
              var jsonLength = 0;
              for (var item in jsonData) {
-                 //alert("Son is " + item);
                  jsonLength++;
              }
              return jsonLength;
@@ -299,7 +297,7 @@
                              "parent": "null",
                              "children": [{}]
                          }
-                         treeData[j].children[count] = children; //将年级及职业嵌入节点
+                         treeData[j].children[count] = children; 
                          //处理冒号后的部分
                          var bodies = body_tmp.split("、");
                          //document.write("姓名：");
@@ -313,14 +311,7 @@
                          count++; //第二子节点编号加一，生成下一个第二子节点
                      }
                  }
-                 //和前面所有的树比较，判断是否为关联树
-                 var tree_tmp = treeData[j];
-                 var name_tmp = treeData[j].name;
-                 for (num_tmp = 0; num_tmp < j; num_tmp++) {
-
-                     check(treeData[num_tmp], name_tmp, tree_tmp, num_tmp);
-                 }
-                 if (!quanju_flag) count_shu++; //若有关联树则独立树的棵数不增加
+                 
              }
 
              //生成所有树
